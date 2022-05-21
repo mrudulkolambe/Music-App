@@ -18,7 +18,7 @@ const SearchResult = ({ show }) => {
 							<div className='mt-3 grid grid-cols-3'>
 								{
 									trendingSearch && trendingSearch.map((result) => {
-										return <SearchResultCard data={result} />
+										return <SearchResultCard key={result} data={result} />
 									})
 								}
 							</div>
@@ -35,7 +35,7 @@ const SearchResult = ({ show }) => {
 							<div className='mt-3'>
 								{
 									primarySearchResult && primarySearchResult.topquery.data.map((result) => {
-										return <SearchResultCard data={result} />
+										return <SearchResultCard key={result.id} data={result} />
 									})
 								}
 							</div>
@@ -48,7 +48,7 @@ const SearchResult = ({ show }) => {
 							<div className='mt-3'>
 								{
 									primarySearchResult && primarySearchResult.songs.data.map((result) => {
-										return <SearchResultCard data={result} />
+										return <SearchResultCard key={result} data={result} />
 									})
 								}
 							</div>
@@ -61,7 +61,7 @@ const SearchResult = ({ show }) => {
 							<div className='mt-3'>
 								{
 									primarySearchResult && primarySearchResult.albums.data.map((result) => {
-										return <SearchResultCard data={result} />
+										return <SearchResultCard key={result} data={result} />
 									})
 								}
 							</div>

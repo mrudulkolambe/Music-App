@@ -1,4 +1,4 @@
-import { onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "./firebase_config";
 import { useRouter } from "next/router";
@@ -12,6 +12,13 @@ export function AuthContextProvider({ children }) {
 	const [user, setUser] = useState()
 	const router = useRouter()
 
+	const handleSignOut = () => {
+		signOut(auth).then(() => {
+			router.push('/auth')
+		}).catch((error) => {
+			// An error happened.
+		});
+	}
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
@@ -20,6 +27,7 @@ export function AuthContextProvider({ children }) {
 				setUser(user)
 			} else {
 				console.log("No User Found")
+				router.push("/auth")
 			}
 		});
 	}, []);
@@ -39,7 +47,7 @@ export function AuthContextProvider({ children }) {
 	}
 
 	return (
-		<AuthContext.Provider value={{ auth, handleGoogleSignIn, user }}>
+		<AuthContext.Provider value={{ auth, handleGoogleSignIn, user, handleSignOut }}>
 			{children}
 		</AuthContext.Provider>
 	);

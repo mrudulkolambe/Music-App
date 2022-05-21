@@ -66,7 +66,7 @@ export default function Home({ }) {
 
         {/* What's Hot */}
         <div className="pl-10">
-          <h1 className="py-10 pb-4  text-4xl Nunito text-gray-400 font-light"><span className="text-black font-bold">What's</span>{" "}Hot</h1>
+          <h1 className="py-10 pb-4  text-4xl Nunito text-gray-400 font-light"><span className="text-black font-bold">{"What's"}</span>{" "}Hot</h1>
           <div className="pl-3 gap-x-4 pb-3 flex items-center overflow-x-auto border-b">
             {
               results && results.city_mod.map((album, i) => {
