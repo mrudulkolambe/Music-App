@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Fredoka:300,regular,500,600,700");
+
+.Nunito {
+  font-family: "Nunito", sans-serif;
+}
+.Montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+.NotoSans {
+  font-family: "Noto Sans", sans-serif;
+}
+.Poppins {
+  font-family: "Poppins", sans-serif;
+}
+.Fredoka {
+  font-family: "Fredoka", sans-serif;
+}
+
+.light-accent {
+  background-color: #362a3e;
+}
+.accent {
+  background-color: #211529;
+}
+.light {
+  background-color: #f6f3f9;
+}
+
+.left-pos-16 {
+  left: 16.667%;
+}
+.min-w-200 {
+  min-width: 200px;
+}
+.w-cont-55 {
+  width: 55%;
+}
+body {
+  overflow-x: hidden;
+  background-color: #f6f3f9;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+img {
+  z-index: 0;
+}
+
+.range__slider {
+  position: relative;
+  width: 15%;
+  height: calc(30px - 10px);
+  display: flex;
+  bottom: 2px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+.slider {
+  -webkit-appearance: none;
+  /* width: calc(100% - (70px)); */
+  height: 3px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.314);
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d4d4d4;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.slider::-webkit-slider-thumb:hover {
+  background: #ffffff;
+  transform: scale(1.4);
+}
+
+.song-width {
+  width: calc(100% - 20px);
+}
+
+.constraint_player_image {
+  min-width: 40px;
+  min-height: 40px;
+}
+.constraint_card_image {
+  min-width: 176px;
+  min-height: 176px;
+}
+
+.zindex1000 {
+  z-index: 1000;
+}
+.zindex2000 {
+  z-index: 2000;
+}
+
+.custom-white-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.custom-white-scroll::-webkit-scrollbar {
+  width: 4px;
+  background-color: white;
+}
+
+.custom-white-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #777;
+}
