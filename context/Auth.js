@@ -33,6 +33,7 @@ export function AuthContextProvider({ children }) {
 	}, []);
 
 	const handleGoogleSignIn = () => {
+		console.log("Auth Module Starting!")
 		signInWithPopup(auth, provider)
 			.then((result) => {
 				const user = result.user;
