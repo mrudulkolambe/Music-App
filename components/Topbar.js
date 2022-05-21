@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
 import { useAuthContext } from '../context/Auth'
 import { useMainContext } from '../context/Main'
@@ -21,7 +22,10 @@ const Topbar = () => {
 					<Image onClick={() => { menu ? setMenu(false) : setMenu(true) }} height={35} width={35} className='cursor-pointer rounded-full' src={user && user.photoURL || "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"} alt="" />
 					<div className={menu ? 'origin-top-right duration-300 bg-white scale-1 p-2 w-32 absolute right-3 rounded-lg shadow-lg' : 'origin-top-right duration-300 bg-white scale-0 p-2 w-32 absolute right-3 rounded-lg shadow-lg'}>
 						<ul className='text-sm font-bold text-center'>
-							<li className='bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' onClick={handleSignOut}>Sign Out</li>
+							<Link href={"/auth"}>
+								<li className={!user ? 'bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' : "hidden"} >Sign in</li>
+							</Link>
+							<li className={user ? 'bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' : "hidden"} onClick={handleSignOut}>Sign Out</li>
 						</ul>
 					</div>
 				</div>

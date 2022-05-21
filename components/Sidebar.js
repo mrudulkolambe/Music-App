@@ -7,9 +7,11 @@ import { BsMusicNoteList, BsFolderPlus } from "react-icons/bs"
 import { useDataContext } from '../context/Data'
 import Alert from './Alert'
 import { useMainContext } from '../context/Main'
+import { useAuthContext } from '../context/Auth'
 
 const Sidebar = ({ setter }) => {
 	const router = useRouter()
+	const { user } = useAuthContext()
 	const [route, setRoute] = useState(0)
 	const { savedData } = useDataContext()
 	const { alert, setAlert } = useMainContext()
@@ -54,7 +56,7 @@ const Sidebar = ({ setter }) => {
 					</div>
 				</Link>
 				<p className='px-8 font-semibold my-4 text-lg'>Library</p>
-				<span onClick={() => { setter(true) }}>
+				<span onClick={() => { user ? setter(true) : router.push("/auth") }}>
 					<div className='text-gray-400 flex items-center px-8 cursor-pointer border-b border-gray-800 py-5 hover:bg-white hover:bg-opacity-10 duration-200'>
 						<BsFolderPlus />
 						<p className='ml-2'>Create Playlist</p>

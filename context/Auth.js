@@ -27,7 +27,7 @@ export function AuthContextProvider({ children }) {
 				setUser(user)
 			} else {
 				console.log("No User Found")
-				router.push("/auth")
+				// router.push("/auth")
 			}
 		});
 	}, []);
