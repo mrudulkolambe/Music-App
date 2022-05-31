@@ -11,12 +11,10 @@ const DynamicPlaylist = () => {
 	const [menu, setMenu] = useState(false)
 	const router = useRouter()
 	useEffect(() => {
-		console.log(router)
 		if (router.query) {
 			axios.get(`${window.location.origin}/api/playlist?id=${router.query.playlist}`)
 				.then((res) => {
 					setPlaylistData(res.data)
-					console.log(res.data)
 					setImage(res.data && res.data.image && res.data.image.replace("-150x150", "-500x500"))
 				})
 		}
@@ -30,7 +28,7 @@ const DynamicPlaylist = () => {
 	return (
 		<>
 			<Head>
-				<title>MixYrr | {playlistData && playlistData.title || "Playlist"}</title>
+				<title>Musify | {playlistData && playlistData.title || "Playlist"}</title>
 			</Head>
 			<div className="absolute left-pos-16 top-16 w-10/12 ml-3 Nunito">
 				<div className='w-full bg-gray-200 shadow-xl p-4 z-0'>

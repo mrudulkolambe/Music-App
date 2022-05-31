@@ -23,17 +23,14 @@ export function AuthContextProvider({ children }) {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
 				const uid = user.uid;
-				console.log(user)
 				setUser(user)
 			} else {
-				console.log("No User Found")
 				// router.push("/auth")
 			}
 		});
 	}, []);
 
 	const handleGoogleSignIn = () => {
-		console.log("Auth Module Starting!")
 		signInWithPopup(auth, provider)
 			.then((result) => {
 				const user = result.user;

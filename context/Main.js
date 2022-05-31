@@ -24,6 +24,9 @@ export function MainContextProvider({ children }) {
 	const [queue, setQueue] = useState([])
 	const [currentQueueItem, setCurrentQueueItem] = useState(0)
 	const [alert, setAlert] = useState("")
+	const [mainSearchResultSong, setMainSearchResultSong] = useState([])
+	const [lyrics, setLyrics] = useState("")
+	const [p, setP] = useState(1)
 
 	const handleTrendingSearch = () => {
 		if (searchFocus) {
@@ -55,6 +58,15 @@ export function MainContextProvider({ children }) {
 				.then((res) => {
 					setSong(res.data.results)
 					setPlay(true)
+					// axios.get(`${window.location.origin}/api/lyrics`, {
+					// 	params:{
+					// 		track: res.data.results.name,
+					// 		artist: res.data.results.artist
+					// 	}
+					// })
+					// .then((response) => {
+					// 	console.log(response)
+					// })
 				})
 		}
 	}, [currentSong]);
@@ -75,25 +87,6 @@ export function MainContextProvider({ children }) {
 			}
 		}
 	}, [search]);
-
-	// const handleKeyEvents = (e) => {
-	// 	e.preventDefault();
-	// 	if (e.code === "Space") {
-	// 		if (play) {
-	// 			setPlay(true)
-	// 			console.log("first")
-	// 		} else {
-	// 			console.log("first1")
-	// 			setPlay(false)
-	// 		}
-	// 	}
-	// }
-	// useEffect(() => {
-	// 	window.addEventListener("keyup", handleKeyEvents)
-	// 	return () => {
-	// 		window.removeEventListener("keyup", handleKeyEvents)
-	// 	};
-	// }, []);
 
 	useEffect(() => {
 		setPlaylistData()
@@ -130,7 +123,7 @@ export function MainContextProvider({ children }) {
 		}
 	}, [alert]);
 	return (
-		<MainContext.Provider value={{ volume, setVolume, results, play, setPlay, currentSong, setCurrentSong, search, setSearch, primarySearchResult, searchFocus, setSearchFocus, trendingSearch, playlistData, setPlaylistData, playlistRoute, setPlaylistRoute, albumData, setAlbumData, song, enableFocus, setEnableFocus, queue, setQueue, currentQueueItem, setCurrentQueueItem, handleQueue, alert, setAlert }}>
+		<MainContext.Provider value={{ volume, setVolume, results, play, setPlay, currentSong, setCurrentSong, search, setSearch, primarySearchResult, searchFocus, setSearchFocus, trendingSearch, playlistData, setPlaylistData, playlistRoute, setPlaylistRoute, albumData, setAlbumData, song, enableFocus, setEnableFocus, queue, setQueue, currentQueueItem, setCurrentQueueItem, handleQueue, alert, setAlert, mainSearchResultSong, setMainSearchResultSong, p, setP }}>
 			{children}
 		</MainContext.Provider>
 	);

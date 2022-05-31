@@ -33,7 +33,6 @@ const SongCard = ({ song, item, data, customPlaylist }) => {
 			list: arrayUnion(obj),
 			image: song && song.image,
 		}).then(() => {
-			console.log("Updated")
 			setAlert("Song Added!")
 		})
 			.catch((err) => {

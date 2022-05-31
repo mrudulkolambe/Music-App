@@ -122,3 +122,41 @@ img {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #777;
 }
+
+.bar {
+  animation: visualize 1s infinite;
+  /* height: 1.75rem;
+  width: 0.5rem; */
+}
+@keyframes visualize {
+  0% {
+    height: 1.75 rem;
+  }
+  50% {
+    height: 1rem;
+  }
+  100% {
+    height: 1.75rem;
+  }
+}
+.bar1 {
+  animation-delay: 1;
+  transition: 0.3s;
+  background: rgb(34 211 238);
+}
+.bar2 {
+  animation-delay: 1.2s;
+  transition: 0.3s;
+  background: rgb(239 68 68);
+}
+.bar3 {
+  animation-delay: 1.5s;
+  transition: 0.3s;
+  background: rgb(251 146 60);
+}
+.zindex300 {
+  z-index: 300;
+}
+.zindex500 {
+  z-index: 500;
+}

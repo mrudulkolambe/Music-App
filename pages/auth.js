@@ -8,7 +8,7 @@ const Auth = () => {
 	return (
 		<>
 			<Head>
-				<title>MixYrr | Authentication</title>
+				<title>Musify | Authentication</title>
 			</Head>
 			<div className='h-screen w-screen accent Nunito flex items-center justify-center'>
 				<button onClick={handleGoogleSignIn} type='button' className='text-white flex items-center bg-white bg-opacity-10 hover:bg-opacity-20 duration-200 p-3 rounded-lg'>

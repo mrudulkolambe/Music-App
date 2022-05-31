@@ -70,7 +70,7 @@ const MyDynamicPlaylist = () => {
 	return (
 		<>
 			<Head>
-				<title>MixYrr | {playlistData && playlistData.title || "Playlist"}</title>
+				<title>Musify | {playlistData && playlistData.title || "Playlist"}</title>
 			</Head>
 			<div>
 				<div className={edit ? 'fixed top-0 left-0 h-screen w-screen zindex1000 bg-black bg-opacity-40 backdrop-blur-md duration-300' : 'fixed top-0 left-0 h-screen w-screen zindex1000 bg-black bg-opacity-0 backdrop-blur-0 duration-300 pointer-events-none'}></div>

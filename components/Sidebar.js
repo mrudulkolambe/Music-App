@@ -14,7 +14,7 @@ const Sidebar = ({ setter }) => {
 	const { user } = useAuthContext()
 	const [route, setRoute] = useState(0)
 	const { savedData } = useDataContext()
-	const { alert, setAlert } = useMainContext()
+	const { alert, setAlert, play } = useMainContext()
 	useEffect(() => {
 		switch (router.pathname) {
 			case "/":
@@ -28,19 +28,21 @@ const Sidebar = ({ setter }) => {
 				break;
 		}
 	}, []);
+
+
 	return (
 		<>
 			<div className='h-screen w-screen pointer-events-none fixed'>
 				<Alert show={alert} setAlert={setAlert} />
 			</div>
-			<div className='hidden md:block Nunito w-2/12 fixed h-screen accent text-white z-0'>
+			<div className='hidden md:block Nunito w-2/12 zindex1000 fixed h-screen accent text-white z-0'>
 				<div className='h-16 w-full light-accent flex items-center justify-center shadow-lg z-50'>
-					<div className='flex items-center'>
-						<span className='m-0.5 h-7 w-2 bg-cyan-400 rounded-full'></span>
-						<span className='m-0.5 h-4 w-2 bg-red-500 rounded-full'></span>
-						<span className='m-0.5 h-7 w-2 bg-orange-400 rounded-full'></span>
+					<div className='flex items-center visualizer-container'>
+						<span className={play ? "duration-300 bar bar1 m-0.5 h-7 w-2 bg-cyan-400 rounded-full" : "duration-300 bar1 m-0.5 h-7 w-2 bg-cyan-400 rounded-full "}></span>
+						<span className={play ? 'duration-300 bar bar2 m-0.5 h-7 w-2 bg-red-500 rounded-full' : 'duration-300 bar2 m-0.5 h-7 w-2 bg-red-500 rounded-full'}></span>
+						<span className={play ? 'duration-300 bar bar3 m-0.5 h-7 w-2 bg-orange-400 rounded-full' : 'duration-300 bar3 m-0.5 h-7 w-2 bg-orange-400 rounded-full'}></span>
 					</div>
-					<p className='text-lg font-bold mx-1'>MixYrr</p>
+					<p className='text-lg font-bold mx-1'>Musify</p>
 				</div>
 				<p className='px-8 font-semibold mt-9 mb-4 text-lg'>Discover</p>
 				<Link href={"/"}>

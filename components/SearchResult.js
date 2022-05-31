@@ -1,9 +1,10 @@
+import Link from 'next/link'
 import React from 'react'
 import { useMainContext } from '../context/Main'
 import SearchResultCard from './SearchResultCard'
 
 const SearchResult = ({ show }) => {
-	const { setEnableFocus } = useMainContext()
+	const { setEnableFocus, setSearchFocus } = useMainContext()
 	const { primarySearchResult, trendingSearch, search } = useMainContext()
 	return (
 		<>
@@ -18,7 +19,7 @@ const SearchResult = ({ show }) => {
 							<div className='mt-3 grid grid-cols-3'>
 								{
 									trendingSearch && trendingSearch.map((result) => {
-										return <SearchResultCard key={result} data={result} />
+										return <SearchResultCard key={result.id} data={result} />
 									})
 								}
 							</div>
@@ -43,12 +44,12 @@ const SearchResult = ({ show }) => {
 						<div className='w-1/3 p-2 border-r pl-6'>
 							<div className='flex justify-between items-center pr-6'>
 								<p className='font-bold'>Songs</p>
-								<p className='font-bold text-gray-400 text-xs'>See All</p>
+								<p className='font-bold text-gray-400 text-xs'  onClick={() => {setSearchFocus(false)}}><Link href={'/search/songs'} >See All</Link></p>
 							</div>
 							<div className='mt-3'>
 								{
-									primarySearchResult && primarySearchResult.songs.data.map((result) => {
-										return <SearchResultCard key={result} data={result} />
+									primarySearchResult && primarySearchResult.songs.data.map((result, i) => {
+										return <SearchResultCard key={i} data={result} />
 									})
 								}
 							</div>
@@ -60,8 +61,8 @@ const SearchResult = ({ show }) => {
 							</div>
 							<div className='mt-3'>
 								{
-									primarySearchResult && primarySearchResult.albums.data.map((result) => {
-										return <SearchResultCard key={result} data={result} />
+									primarySearchResult && primarySearchResult.albums.data.map((result, i) => {
+										return <SearchResultCard key={i+"album"} data={result} />
 									})
 								}
 							</div>

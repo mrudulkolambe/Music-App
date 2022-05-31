@@ -26,7 +26,7 @@ const DynamicAlbum = () => {
 	return (
 		<>
 			<Head>
-				<title>MixYrr | {albumData && albumData.title || "Album"}</title>
+				<title>Musify | {albumData && albumData.title || "Album"}</title>
 			</Head>
 			<div className="absolute left-pos-16 top-16 w-10/12 ml-3 Nunito">
 				<div className='relative w-full bg-gray-200 shadow-xl p-4 z-0'>

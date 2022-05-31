@@ -25,7 +25,6 @@ const CreatePlaylistModal = ({ setter, show }) => {
 		}
 		await addDoc(collection(db, "PLAYLIST"), obj)
 			.then((res) => {
-				console.log(res.id)
 				setLoading(false)
 				setter(false)
 				setAlert("Playlist Created!")
