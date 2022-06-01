@@ -15,7 +15,7 @@ const About = () => {
 					<h1 className='text-4xl font-extrabold'>Musify</h1>
 					<h1>{version}</h1>
 					<h3 className='text-xl mt-6'>This is an open-source project and can be found on</h3>
-					<h3 className='text-2xl Montserrat font-bold'><a href="https://github.com/mrudulkolambe/music-app" target='_blank'>GitHub</a></h3>
+					<h3 className='text-2xl Montserrat font-bold'><a href="https://github.com/mrudulkolambe/music-app" rel="noreferrer" target='_blank'>GitHub</a></h3>
 					<h3 className='text-xl Montserrat mt-4'>If you liked my work</h3>
 					<h3 className='text-xl Montserrat'>show some ❤️ and ⭐ the repo</h3>
 				</div>
