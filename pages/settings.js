@@ -4,7 +4,7 @@ import { useAuthContext } from '../context/Auth'
 import { useMainContext } from '../context/Main'
 import Link from 'next/link'
 
-const settings = () => {
+const Settings = () => {
 
 	const { user } = useAuthContext()
 	const { quality, setQuality, version, streamingQuality } = useMainContext()
@@ -86,4 +86,4 @@ const settings = () => {
 	)
 }
 
-export default settings
+export default Settings

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMainContext } from '../context/Main'
 
-const about = () => {
+const About = () => {
 	const { version } = useMainContext()
 	return (
 		<div className="Nunito absolute left-pos-16 top-16 w-10/12 z-0 p-9">
@@ -27,4 +27,4 @@ const about = () => {
 	)
 }
 
-export default about
+export default About

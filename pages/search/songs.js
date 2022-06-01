@@ -4,7 +4,7 @@ import SongCard from '../../components/SongCard'
 import { useMainContext } from '../../context/Main'
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const songs = () => {
+const SearchSongs = () => {
   let source = axios.CancelToken.source()
   const { search, mainSearchResultSong, setMainSearchResultSong, p, setP } = useMainContext()
   const [totalResults, setTotalResults] = useState(0)
@@ -78,4 +78,4 @@ const songs = () => {
   )
 }
 
-export default songs
+export default SearchSongs
