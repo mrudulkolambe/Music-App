@@ -8,6 +8,7 @@ import { useDataContext } from '../context/Data'
 import Alert from './Alert'
 import { useMainContext } from '../context/Main'
 import { useAuthContext } from '../context/Auth'
+import Settings from './icons/Settings'
 
 const Sidebar = ({ setter }) => {
 	const router = useRouter()
@@ -38,9 +39,9 @@ const Sidebar = ({ setter }) => {
 			<div className='hidden md:block Nunito w-2/12 zindex1000 fixed h-screen accent text-white z-0'>
 				<div className='h-16 w-full light-accent flex items-center justify-center shadow-lg z-50'>
 					<div className='flex items-center visualizer-container'>
-						<span className={play ? "duration-300 bar bar1 m-0.5 h-7 w-2 bg-cyan-400 rounded-full" : "duration-300 bar1 m-0.5 h-7 w-2 bg-cyan-400 rounded-full "}></span>
+						<span className={play ? "duration-300 bar bar1 m-0.5 h-7 w-2 bg-cyan-400 rounded-full" : "duration-300 bar1 m-0.5 h-4 w-2 bg-cyan-400 rounded-full "}></span>
 						<span className={play ? 'duration-300 bar bar2 m-0.5 h-7 w-2 bg-red-500 rounded-full' : 'duration-300 bar2 m-0.5 h-7 w-2 bg-red-500 rounded-full'}></span>
-						<span className={play ? 'duration-300 bar bar3 m-0.5 h-7 w-2 bg-orange-400 rounded-full' : 'duration-300 bar3 m-0.5 h-7 w-2 bg-orange-400 rounded-full'}></span>
+						<span className={play ? 'duration-300 bar bar3 m-0.5 h-7 w-2 bg-orange-400 rounded-full' : 'duration-300 bar3 m-0.5 h-5 w-2 bg-orange-400 rounded-full'}></span>
 					</div>
 					<p className='text-lg font-bold mx-1'>Musify</p>
 				</div>
@@ -51,10 +52,22 @@ const Sidebar = ({ setter }) => {
 						<p className='ml-2'>Home</p>
 					</div>
 				</Link>
-				<Link href={"/"}>
+				{/* <Link href={"/"}>
 					<div className='text-gray-400 flex items-center px-8 cursor-pointer border-b border-gray-800 py-5 hover:bg-white hover:bg-opacity-10 duration-200'>
 						<Collection />
 						<p className='ml-2'>Collection</p>
+					</div>
+				</Link> */}
+				<Link href={"/about"}>
+					<div className='text-gray-400 flex items-center px-8 cursor-pointer border-b border-gray-800 py-5 hover:bg-white hover:bg-opacity-10 duration-200'>
+						<Collection />
+						<p className='ml-2'>About</p>
+					</div>
+				</Link>
+				<Link href={"/settings"}>
+					<div className='text-gray-400 flex items-center px-8 cursor-pointer border-b border-gray-800 py-5 hover:bg-white hover:bg-opacity-10 duration-200'>
+						<Settings />
+						<p className='ml-2'>Settings</p>
 					</div>
 				</Link>
 				<p className='px-8 font-semibold my-4 text-lg'>Library</p>
@@ -76,10 +89,6 @@ const Sidebar = ({ setter }) => {
 						})
 					}
 				</div>
-				<img src="/assets/music-note-list.svg" alt="" />
-				<img src="/assets/vinyl.svg" alt="" />
-				<img src="/assets/star.svg" alt="" />
-				<img src="/assets/mic.svg" alt="" />
 			</div>
 		</>
 	)

@@ -16,19 +16,22 @@ const Topbar = () => {
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="absolute bi bi-search" viewBox="0 0 16 16">
 						<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
 					</svg>
-					<input onFocus={() => { setSearchFocus(true) }} onBlur={() => { enableFocus && setSearchFocus(false) }} value={search} type="text" onChange={(e) => { 
+					<input onFocus={() => { setSearchFocus(true) }} onBlur={() => { enableFocus && setSearchFocus(false) }} value={search} type="text" onChange={(e) => {
 						window.localStorage.setItem('search', e.target.value)
 						setSearch(e.target.value)
-					 }} className='Nunito font-semibold px-8 outline-none h-full w-48' placeholder='Search...' />
+					}} className='Nunito font-semibold px-8 outline-none h-full w-48' placeholder='Search...' />
 				</div>
 				<div className='relative Nunito'>
 					<Image onClick={() => { menu ? setMenu(false) : setMenu(true) }} height={35} width={35} className='cursor-pointer rounded-full' src={user && user.photoURL || "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"} alt="" />
 					<div className={menu ? 'origin-top-right duration-300 bg-white scale-1 p-2 w-32 absolute right-3 rounded-lg shadow-lg' : 'origin-top-right duration-300 bg-white scale-0 p-2 w-32 absolute right-3 rounded-lg shadow-lg'}>
 						<ul className='text-sm font-bold text-center'>
 							<Link href={"/auth"}>
-								<li className={!user ? 'bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' : "hidden"} >Sign in</li>
+								<li className={!user ? 'my-1 bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' : "hidden"} >Sign in</li>
 							</Link>
-							<li className={user ? 'bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' : "hidden"} onClick={handleSignOut}>Sign Out</li>
+							<li className={user ? 'my-1 bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer' : "hidden"} onClick={handleSignOut}>Sign Out</li>
+							<Link href={"/settings"}>
+								<li className='my-1 bg-black rounded-md py-1 px-2 bg-opacity-5 hover:bg-opacity-10 duration-150 cursor-pointer'>Settings</li>
+							</Link>
 						</ul>
 					</div>
 				</div>

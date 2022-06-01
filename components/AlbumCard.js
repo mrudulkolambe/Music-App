@@ -5,11 +5,11 @@ const AlbumCard = ({ album }) => {
 	const { title, image, subtitle, type, id } = album;
 	const imgURL = image.replace(".webp", ".jpg")
 	const finalIMGURL = imgURL.replace("-150x150", "-500x500")
-	const url = album && type === "album" ? `/album/${id}` : album && type === "playlist" ? `/playlist/${id}` : album && type === "song" ? `/song/${id}` : null
+	const url = album && type === "album" ? `/album/${id}` : album && type === "playlist" ? `/playlist/${id}` : album && type === "song" ? `/song/${id}` : album && type === "radio_station" ? `/artist/${id}` : null;
 	return (
 		<>
 			{
-				album && url !== null || type === "album" || type === "playlist" || type === "song" ? <Link href={url}>
+				album && url !== null || type === "album" || type === "playlist" || type === "song" || type === 'radio_station' ? <Link href={url}>
 					<div className='Nunito mx-2 min-w-200 cursor-pointer flex flex-col justify-between'>
 						<div className='py-4 px-2 relative'>
 							<img className='constraint_card_image h-44 w-44 rounded-2xl rounded-bl-none shadow-xl' src={finalIMGURL} alt="" />

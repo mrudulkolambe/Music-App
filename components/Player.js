@@ -8,10 +8,11 @@ import SkipEnd from './icons/SkipEnd'
 import Speaker2 from './icons/Speaker2'
 import Speaker1 from './icons/Speaker1'
 import Speaker0 from './icons/Speaker0'
+import { MdLoop, MdQueueMusic } from 'react-icons/md'
 
 const Player = () => {
   const video = useRef()
-  const { play, setPlay, volume, setVolume, queue, currentQueueItem, setCurrentQueueItem, setCurrentSong, song } = useMainContext()
+  const { play, setPlay, volume, setVolume, queue, currentQueueItem, setCurrentQueueItem, setCurrentSong, song, loop, setLoop, openQueue, setOpenQueue, quality, songQuality, setSongQuality } = useMainContext()
   const [duration, setDuration] = useState(0)
   const [speakerIcon, setSpeakerIcon] = useState(2)
   const handleProgress = (e) => {
@@ -38,6 +39,9 @@ const Player = () => {
     }
   }
 
+  const handleLoop = () => {
+    loop ? setLoop(false) : setLoop(true)
+  }
   useEffect(() => {
     if (video && video.current && video.current.currentTime !== video.current.duration) {
       play ? video.current.play() : video.current.pause()
@@ -73,7 +77,8 @@ const Player = () => {
     video.current.muted ? setVolume(1) : setVolume(0)
   }
   const handleSongEnding = (e) => {
-    if (queue) {
+    setSongQuality(quality)
+    if (queue && !loop) {
       if (currentQueueItem <= queue.length) {
         setCurrentQueueItem(currentQueueItem + 1)
       }
@@ -87,6 +92,7 @@ const Player = () => {
   }, [currentQueueItem]);
 
   const handlePrevious = () => {
+    setSongQuality(quality)
     if (queue) {
       if (currentQueueItem >= 0) {
         setCurrentQueueItem(currentQueueItem - 1)
@@ -98,6 +104,7 @@ const Player = () => {
   }
 
   const handleNext = () => {
+    setSongQuality(quality)
     if (queue) {
       if (currentQueueItem !== queue.length) {
         setCurrentQueueItem(currentQueueItem + 1)
@@ -111,9 +118,9 @@ const Player = () => {
     <>
       <div className='zindex2000 flex items-center py-2 fixed bottom-0 h-20 light-accent w-full z-50'>
         <div className='relative'>
-          <video onPlay={() => {
+          <video loop={loop} onPlay={() => {
             setPlay(true)
-          }} on onEnded={handleSongEnding} onPause={() => { setPlay(false) }} onTimeUpdate={handleProgress} ref={video} src={song !== undefined && song.downloadUrl && song.downloadUrl[4].link} controls className='hidden'></video>
+          }} on onEnded={handleSongEnding} onPause={() => { setPlay(false) }} onTimeUpdate={handleProgress} ref={video} src={song !== undefined && song.downloadUrl && song.downloadUrl[songQuality].link} controls className='hidden'></video>
         </div>
         <div className='flex items-center text-white Nunito w-2/12 pl-8'>
           <div className='relative w-12'>
@@ -145,6 +152,11 @@ const Player = () => {
             <span>{formatDuration(video && video.current && video.current.currentTime) || "00:00"}</span>
             <span>&nbsp;/&nbsp;</span>
             <span>{formatDuration(video && video.current && video.current.duration) || "00:00"}</span>
+          </div>
+
+          <div className='relative -top-0.5 mx-7 text-white flex'>
+            {loop ? <MdLoop onClick={handleLoop} className='cursor-pointer duration-200 text-lg mx-2' /> : <MdLoop onClick={handleLoop} className='cursor-pointer hover:text-gray-300 duration-200 text-lg text-gray-600 mx-2' />}
+            {openQueue ? <MdQueueMusic onClick={() => { setOpenQueue(false) }} className='text-lg mx-2 cursor-pointer duration-200' /> : <MdQueueMusic onClick={() => { setOpenQueue(true) }} className='text-lg text-gray-600 mx-2 cursor-pointer hover:text-gray-300 duration-200' />}
           </div>
 
           <div className='w-1/12 ml-3 items-center flex'>

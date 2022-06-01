@@ -1,7 +1,8 @@
+import axios from "axios"
+
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-// import {lyricsFinder} from 'lyrics-finder'
 export default async function handler(req, res) {
 	console.log(req.query)
-	// const lyrics = await lyricsFinder(req.query.artist, req.query.track) || "No Lyrics Found"
-	// res.json({ lyrics })
+	const lyrics = axios.get(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?apikey=04ceee518eb78d871a51a900f2ce7010&format=json&q_track=${req.query.track}&q_artist=${req.query.artist}`)
+	res.json({ lyrics })
 }

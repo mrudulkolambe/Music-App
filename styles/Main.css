@@ -125,8 +125,9 @@ img {
 
 .bar {
   animation: visualize 1s infinite;
-  /* height: 1.75rem;
-  width: 0.5rem; */
+}
+.barMore {
+  animation: visualize2 1s infinite;
 }
 @keyframes visualize {
   0% {
@@ -137,6 +138,17 @@ img {
   }
   100% {
     height: 1.75rem;
+  }
+}
+@keyframes visualize2 {
+  0% {
+    height: 2.5rem;
+  }
+  50% {
+    height: 1.75rem;
+  }
+  100% {
+    height: 2.5rem;
   }
 }
 .bar1 {

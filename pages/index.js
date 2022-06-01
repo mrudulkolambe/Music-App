@@ -23,7 +23,7 @@ export default function Home({ }) {
               <span className="text-black font-bold">New</span>
               {" "}Releases
             </h1>
-            <div className="pr-12">arrow</div>
+            {/* <div className="pr-12">arrow</div> */}
           </div>
           <div className="pl-3 gap-x-4 pb-3 flex items-center overflow-x-auto border-b">
             {
@@ -76,7 +76,9 @@ export default function Home({ }) {
           <div className="pl-3 gap-x-4 pb-3 flex items-center overflow-x-auto border-b">
             {
               results && results.city_mod.map((album, i) => {
-                return <AlbumCard key={i} album={album} />
+                if (album.type !== 'radio_station') {
+                  return <AlbumCard key={i} album={album} />
+                }
               })
             }
           </div>
@@ -119,16 +121,18 @@ export default function Home({ }) {
         </div>
 
         {/* Summer Ki Dhun */}
-        <div className="pl-10 mb-20">
+        <div className="pl-10 mb-20 hidden">
           <h1 className="py-10 pb-4  text-4xl Nunito text-gray-400 font-light"><span className="text-black font-bold">Summer</span>{" Ki Dhun"}</h1>
           <div className="pl-3 gap-x-4 pb-3 flex items-center overflow-x-auto border-b">
             {
-              results && Object.entries(results)[12][1].map((album, i) => {
+              results && Object.entries(results)[11] && Object.entries(results)[11][1].forEach((album, i) => {
                 return <AlbumCard key={i} album={album} />
               })
             }
           </div>
         </div>
+
+
 
       </div>
     </>
